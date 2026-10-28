@@ -1,0 +1,4 @@
+__pycache__/ *.pyc .venv/ venv/ .env *.db
+.pytest_cache/ .ruff_cache/
+app/ml/models/*.joblib
+app/ml/models/registry.json

@@ -1,0 +1,150 @@
+.DS_Store .idea/ .vscode/ .env .env.local
+**/__pycache__/ **/*.pyc **/.venv/ **/venv/ **/*.db
+**/.pytest_cache/ **/.ruff_cache/
+**/node_modules/ **/dist/ **/coverage/
+**/app/ml/models/*.joblib
+==============================
+
+Operating System Files
+
+==============================
+
+.DS_Store
+Thumbs.db
+Thumbs.db:encryptable
+Desktop.ini
+$RECYCLE.BIN/
+
+==============================
+
+IDEs and Editors
+
+==============================
+
+.idea/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+==============================
+
+Environment Variables and Secrets
+
+==============================
+
+.env
+.env.*
+!.env.example
+
+==============================
+
+Python
+
+==============================
+
+pycache/
+*.py[cod]
+*$py.class
+
+.venv/
+venv/
+ENV/
+env/
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+
+pip-wheel-metadata/
+.egg-info/
+.eggs/
+wheels/
+dist-python/
+htmlcov/
+.coverage
+.coverage.
+
+==============================
+
+Node.js and Frontend
+
+==============================
+
+node_modules/
+dist/
+coverage/
+
+Next.js
+
+.next/
+out/
+
+Vite
+
+.vite/
+
+Package manager logs
+
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+==============================
+
+Machine Learning Artifacts
+
+==============================
+
+**/app/ml/models/*.joblib
+*.pth
+*.pt
+*.h5
+*.hdf5
+*.onnx
+*.safetensors
+
+==============================
+
+Databases and Local Data
+
+==============================
+
+*.db
+*.sqlite
+*.sqlite3
+
+==============================
+
+Logs and Temporary Files
+
+==============================
+
+*.log
+tmp/
+temp/
+
+==============================
+
+Build and Cache Files
+
+==============================
+
+.cache/
+.parcel-cache/
+*.tsbuildinfo
+
+==============================
+
+Test and Tool Caches
+
+==============================
+
+.mypy_cache/
+.pyre/
+.pytype/
+.tox/
+.nox/

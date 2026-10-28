@@ -1,0 +1,23 @@
+[project]
+name = "fintrack-pro-backend"
+version = "1.0.0"
+description = "FinTrack Pro — ML-powered personal finance platform"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115.0", "uvicorn[standard]>=0.32.0",
+    "sqlalchemy>=2.0.35", "pydantic>=2.9.0", "pydantic-settings>=2.5.0",
+    "python-jose[cryptography]>=3.3.0", "bcrypt>=4.0.0",
+    "python-multipart>=0.0.12", "email-validator>=2.2.0",
+    "pandas>=2.2.0", "numpy>=1.26.0",
+    "chardet>=5.2.0",
+    "scikit-learn>=1.5.0", "joblib>=1.4.0",     # ← NEW: ML pipeline (Week 1)
+    "yfinance>=0.2.40",                          # ← NEW: live stock prices (Week 2)
+    "apscheduler>=3.10.4",                       # ← NEW: background jobs (Week 3)
+    "openpyxl>=3.1.5",                           # ← NEW: .xlsx export (Week 4)
+]
+[dependency-groups]
+dev = ["pytest>=8.3.0", "httpx>=0.27.0", "ruff>=0.7.0"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+[tool.ruff]
+line-length = 100

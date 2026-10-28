@@ -1,0 +1,68 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+
+/*
+  FinTrack design system: a night ledger.
+  - Rich Black paper, Medium Slate Blue accent, Periwinkle / Columbia Blue for
+    text and tints, Celadon for money in and "verified by the model".
+  - Every rupee amount is IBM Plex Mono with tabular figures, right-aligned, so
+    columns line up like a printed statement.
+  - Structure comes from hairline rules, not shadows. Panels are flat sheets with
+    a slate-blue top rule; radius is small and varies by role.
+  - The one bold motif is the .stamp: ML-categorised rows get a periwinkle seal.
+*/
+@layer base {
+  html, body, #root { height: 100%; }
+  /* Tells the browser to draw native controls (month picker, selects, scrollbars,
+     checkboxes) in their dark variants instead of white-on-black surprises. */
+  html { color-scheme: dark; }
+  body { @apply bg-paper text-ink antialiased font-sans; }
+  :focus-visible { outline: 2px solid theme('colors.accent.text'); outline-offset: 2px; }
+  ::selection { background: theme('colors.accent.DEFAULT'); color: #fff; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  }
+}
+
+@layer components {
+  /* Flat statement sheet: hairline border, slate-blue rule on top, no shadow. */
+  .card { @apply bg-surface border border-line rounded-sm border-t-2 border-t-accent; }
+
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-sm px-4 py-2 text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed; }
+  .btn-primary { @apply btn bg-brand-600 text-white hover:bg-brand-700; }
+  .btn-ghost { @apply btn border border-line bg-surface text-ink hover:bg-surface-2; }
+
+  .input-field { @apply rounded-sm border border-line bg-surface-2 px-3 py-2 text-sm text-ink placeholder:text-slate-400 focus:border-accent-text focus:outline-none focus:ring-1 focus:ring-accent-text; }
+
+  /* Category chip: small and squared like a ledger tag, not a pill. */
+  .cat-pill { @apply inline-block px-2 py-0.5 rounded-sm text-xs font-medium; }
+
+  
+  /* Top-bar link: an underline in the accent marks the current page. */
+  /* Hide the nav's scrollbar: it scrolls on narrow screens, but a visible bar
+     inside a 56px header reads as a glitch. */
+  .nav-strip { scrollbar-width: none; }
+  .nav-strip::-webkit-scrollbar { display: none; }
+
+  .t-item { @apply relative flex flex-shrink-0 items-center gap-1.5 whitespace-nowrap px-3 text-sm text-slate-500 transition-colors hover:bg-white/5 hover:text-ink; }
+  .t-item.active { @apply bg-accent/10 font-medium text-ink shadow-[inset_0_-2px_0_theme('colors.accent.DEFAULT')]; }
+
+  .budget-bar-bg { @apply w-full h-2 rounded-sm bg-surface-2 overflow-hidden; }
+
+  /* Amounts: mono, tabular, aligned. Sign decides colour, not the caller. */
+  .amount { @apply font-mono tabular-nums text-right whitespace-nowrap; }
+  .amount-credit { @apply amount text-credit; }
+  .amount-debit  { @apply amount text-debit; }
+
+  /* Ledger row: hairline between rows instead of a box around each. */
+  .ledger-row { @apply flex items-center gap-3 border-b border-line py-2.5 last:border-b-0; }
+
+  /* Page title block: title over a short accent rule, like a statement letterhead. */
+  .page-title { @apply text-lg font-semibold tracking-tight text-ink; }
+
+  /* The seal. Slight tilt and a double ring read as an ink stamp. */
+  .stamp {
+    @apply inline-flex items-center gap-1 rounded-full border border-accent-text/70 px-2 py-0.5 font-mono text-[10px] font-medium text-accent-text;
+    box-shadow: inset 0 0 0 2px theme('colors.surface.DEFAULT'), inset 0 0 0 3px rgb(184 186 255 / .35);
+    transform: rotate(-3deg);
+  }
+}
