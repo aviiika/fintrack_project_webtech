@@ -200,6 +200,7 @@ of single-process deployment, and the fix is the same shape as the price cache
 ## Quick start (Windows)
 
 ```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 .\dev.ps1 install
 copy backend\.env.example backend\.env
 .\dev.ps1 seed       # creates demo user + trains initial model
